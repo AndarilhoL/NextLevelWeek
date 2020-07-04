@@ -32,7 +32,7 @@ function getCities(event) {
         .then(cities => {
 
             for (const city of cities) {
-                citySelect.innerHTML += `<option value="${city.id}">${city.nome}</option>`
+                citySelect.innerHTML += `<option value="${city.nome}">${city.nome}</option>`
             }
 
             citySelect.disabled = false;
@@ -44,3 +44,55 @@ function getCities(event) {
 //Quando o UF for selecionado o Evento Listener chama a função getCities//PegarCidades
 document.querySelector("select[name=uf]")
     .addEventListener("change", getCities);
+
+
+//Itens de Coleta
+//Pegar todos os li's
+
+const itemsToCollect = document.querySelectorAll(".items-grid li");
+
+for (const item of itemsToCollect) {
+    item.addEventListener("click",handleSelectedItem);
+}
+
+
+const collectedItems = document.querySelector("input[name=items]");
+
+let selectedItems = [];
+
+function handleSelectedItem(event) {
+    const itemLi = event.target;
+
+    //adicionar ou remover uma classe com JS
+    itemLi.classList.toggle("selected");
+
+    const itemId = itemLi.dataset.id; 
+
+
+
+
+    //Verificar se existem itens sleecionados, se sim
+    //pegar os itens selecionados
+    const alreadySelected = selectedItems.findIndex( item => {
+        const itemFound = item == itemId;
+        return itemFound;
+    });
+
+    // se já estiver selecionado, tirar da seleção
+    if (alreadySelected >= 0) {
+        const filteredItems = selectedItems.filter( item => {
+            const itemIsDifferent = item != itemId; // retorna Falso
+            return itemIsDifferent;
+        })
+
+        selectedItems = filteredItems;
+    }
+    else {
+
+        //se não estiver selecionado, adicionar à seleção
+        selectedItems.push(itemId);
+    }
+
+    //atualizar o campo escondido com os itens selecionados
+    collectedItems.value = selectedItems;
+}

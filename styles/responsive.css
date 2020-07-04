@@ -19,7 +19,22 @@
     #page-home main {
         align-items: center;
     }
+
+    #page-search-results .cards {
+        grid-template-columns: 1fr;
+    }
+
+    #page-search-results main .card img {
+        width: 280px;
+        height: 300px;
+    
+        object-fit: cover;
+    
+        border-radius: 8px 8px 0 0;
+    }
 }
+
+
 
 @media (min-width:1700px){
     #page-home {
@@ -28,12 +43,16 @@
 
 }
 
+
+
 @media (max-height:640px){
     #page-home main h1 {
         font-size: 35px;       
     }
     
 }
+
+
 
 @media (max-height:760px){
     #page-home {
