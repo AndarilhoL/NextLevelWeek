@@ -68,6 +68,8 @@ function handleSelectedItem(event) {
 
     const itemId = itemLi.dataset.id; 
 
+    console.log('ITEM ID: ', itemId)
+
 
 
 
@@ -95,4 +97,6 @@ function handleSelectedItem(event) {
 
     //atualizar o campo escondido com os itens selecionados
     collectedItems.value = selectedItems;
+
+    console.log("Itens Selecionados: ",selectedItems);
 }

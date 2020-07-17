@@ -67,11 +67,21 @@ form fieldset {
 }
 
 form legend {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-bottom: 40px;
+
+    width: 100%;
 }
 
 form legend h2 {
     font-size: 24px;
+}
+
+form legend span {
+    color: var(--title-color);
+    font-size: 14px;
 }
 
 
@@ -85,7 +95,6 @@ form .field {
 
 form .field-group {
     display: flex;
-
 }
 
 form select,

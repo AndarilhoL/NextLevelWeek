@@ -32,6 +32,14 @@
     
         border-radius: 8px 8px 0 0;
     }
+
+    #page-create-point .field-group {
+        flex-direction: column;
+    }
+
+    #page-create-point .field-group .field + .field {
+        margin-left: 0;
+    }
 }
 
 
